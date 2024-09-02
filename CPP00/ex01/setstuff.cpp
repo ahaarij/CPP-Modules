@@ -6,7 +6,7 @@
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 10:20:06 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/08/26 13:47:14 by ahaarij          ###   ########.fr       */
+/*   Updated: 2024/08/28 00:27:06 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,27 @@ void	contactinfo::setsecret(std::string str)
 	this->_secret = str;
 }
 
-std::string	contactinfo::getfirstname(void)
+std::string	contactinfo::getfirstname(void) const
 {
 	return (this->_first_name);
 }
 
-std::string	contactinfo::getlastname(void)
+std::string	contactinfo::getlastname(void) const
 {
 	return (this->_last_name);
 }
 
-std::string	contactinfo::getnickname(void)
+std::string	contactinfo::getnickname(void) const
 {
 	return (this->_nickname);
 }
 
-std::string	contactinfo::getnumber(void)
+std::string	contactinfo::getnumber(void) const
 {
 	return (this->_number);
 }
 
-std::string	contactinfo::getsecret(void)
+std::string	contactinfo::getsecret(void) const
 {
 	return (this->_secret);
 }

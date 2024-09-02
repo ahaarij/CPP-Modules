@@ -6,7 +6,7 @@
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 09:01:16 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/08/26 14:56:40 by ahaarij          ###   ########.fr       */
+/*   Updated: 2024/08/28 00:33:00 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,41 @@ void	phonebook::add(void)
 	this->_i++;
 }
 
+void	phonebook::print(contactinfo contact)
+{
+	if(!contact.getfirstname().size())
+	{
+		std::cout << "Contact does not exist!\n";
+		return ;
+	}
+	std::cout << "First Name     : " << contact.getfirstname() << std::endl;
+	std::cout << "Last Name      : " << contact.getlastname() << std::endl;
+	std::cout << "Nick Name      : " << contact.getnickname() << std::endl;
+	std::cout << "Phone Number   : " << contact.getnumber() << std::endl;
+	std::cout << "Darkest Secret : " << contact.getsecret() << std::endl;
+}
 
 void	phonebook::search(void)
 {
 	std::string str;
-	search_interface(this->_contact, _i);
-	// if()
-	// while(!std::cin.eof())
-	// {
-		// 
-	// }
+	if(!search_interface(this->_contact))
+	{
+		std::cout << "Phonebook is empty!!!!\n";
+		return ;
+	}
+	while(!std::cin.eof())
+	{
+		std::cout << "Enter an index : ";
+		if(std::getline(std::cin, str) && str != "")
+		{
+			if(str.size() == 1 && (str[0] >= '1' && str[0] <= '8' && this->_contact[str[0] - 1 - '0'].getfirstname().size()))
+				break;
+		}
+		if (str != "")
+			std::cout << "invalid index\n";
+	}
+	if(!std::cin.eof())
+		this->print(this->_contact[str[0] - 1 - '0']);
 }
 
 int	main()

@@ -6,7 +6,7 @@
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 09:12:04 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/08/26 14:54:48 by ahaarij          ###   ########.fr       */
+/*   Updated: 2024/08/28 00:27:19 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ public:
 	void			setnumber(std::string str);
 	void			setsecret(std::string str);
 	// getters
-	std::string		getfirstname(void);
-	std::string		getlastname(void);
-	std::string		getnickname(void);
-	std::string		getnumber(void);
-	std::string		getsecret(void);
+	std::string		getfirstname(void) const;
+	std::string		getlastname(void) const;
+	std::string		getnickname(void) const;
+	std::string		getnumber(void) const;
+	std::string		getsecret(void) const;
 };
 
 class phonebook
@@ -53,9 +53,10 @@ public:
 	~phonebook(void);
 	void			add(void);
 	void			search(void);
+	void			print(contactinfo contact);
 };
 
-int	search_interface(contactinfo _contact[8], int _i);
+int	search_interface(contactinfo _contact[8]);
 
 // put _ in private classes cuz its just a common naming convention to avoid confusion i guess
 // probs for dum people ( i will forget no doubt )

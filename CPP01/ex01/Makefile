@@ -5,19 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/08/21 09:00:51 by ahaarij           #+#    #+#              #
-#    Updated: 2024/08/28 00:26:00 by ahaarij          ###   ########.fr        #
+#    Created: 2024/08/28 12:30:19 by ahaarij           #+#    #+#              #
+#    Updated: 2024/08/28 12:53:04 by ahaarij          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = phonebook.cpp setstuff.cpp phonebook_utils.cpp
+SRC = main.cpp zombieHorde.cpp Zombie.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = g++
 RM = rm -rf
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-CPPFLAGS += -fsanitize=address -g3
 
-NAME = phonebook
+NAME = Zombie
 
 all: $(NAME)
 
