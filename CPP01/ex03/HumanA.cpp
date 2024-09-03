@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/31 23:02:41 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/09/03 13:21:29 by ahaarij          ###   ########.fr       */
+/*   Created: 2024/09/02 10:12:58 by ahaarij           #+#    #+#             */
+/*   Updated: 2024/09/03 13:29:10 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_H
-# define WEAPON_H
+#include "HumanA.hpp"
 
-#include <iostream>
-#include <iomanip>
-
-class Weapon
+HumanA::HumanA(std::string str, Weapon &Weapon):_weapon(Weapon)
 {
-private:
-    std::string _type;
-public:
-    Weapon(std::string Weapon);
-    ~Weapon();
-    std::string getType() const;
-    void    setType(std::string type);
-};
+	this->_name = str;
+	std::cout << this->_name << " is here with " << this->_weapon.getType() << std::endl;
+}
 
-#endif
+HumanA::~HumanA()
+{
+	std::cout << this->_name << " just died loool" << std::endl;
+}
+
+void	HumanA::attack()
+{
+	std::cout << this->_name << " attacked with " << this->_weapon.getType() << std::endl;
+}

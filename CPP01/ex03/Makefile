@@ -6,11 +6,11 @@
 #    By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/31 23:00:45 by ahaarij           #+#    #+#              #
-#    Updated: 2024/08/31 23:00:54 by ahaarij          ###   ########.fr        #
+#    Updated: 2024/09/03 13:27:38 by ahaarij          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp
+SRC = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = g++
 RM = rm -rf

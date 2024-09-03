@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/31 23:02:41 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/09/03 13:21:29 by ahaarij          ###   ########.fr       */
+/*   Created: 2024/09/02 10:22:20 by ahaarij           #+#    #+#             */
+/*   Updated: 2024/09/03 13:37:06 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_H
-# define WEAPON_H
+#include "Weapon.hpp"
 
-#include <iostream>
-#include <iomanip>
-
-class Weapon
+Weapon::Weapon(std::string weapon)
 {
-private:
-    std::string _type;
-public:
-    Weapon(std::string Weapon);
-    ~Weapon();
-    std::string getType() const;
-    void    setType(std::string type);
-};
+	this->setType(weapon);
+}
 
-#endif
+Weapon::~Weapon()
+{
+	std::cout << this->getType() << " was thrown away!" << std::endl;
+}
+
+std::string Weapon::getType() const
+{
+	return (_type);
+}
+
+void    Weapon::setType(std::string type)
+{
+	_type = type;
+}
