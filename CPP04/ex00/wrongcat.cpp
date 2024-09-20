@@ -1,18 +1,30 @@
 #include "wrongcat.hpp"
 
-wrongcat::wrongcat()
+Wrongcat::Wrongcat()
 {
 	std::cout << "Wrongcat Constructor called!" << std::endl;
-	_type = "wrongcat";
+	_type = "Wrongcat";
 }
 
-wrongcat::wrongcat(const wrongcat &copy)
+Wrongcat::Wrongcat(const Wrongcat &copy)
 {
-	std::cout << "wrongcat copy constructor called!" << std::endl;
+	std::cout << "Wrongcat copy constructor called!" << std::endl;
 	operator=(copy);
 }
 
-wrongcat &wrongcat::operator=(wrongcat const &copy)
+Wrongcat &Wrongcat::operator=(Wrongcat const &copy)
 {
-	std::cout << ""
+	std::cout << "Wrongcat Assignment overload called!" << std::endl;
+	_type = copy._type;
+	return (*this);
+}
+
+Wrongcat::~Wrongcat()
+{
+	std::cout << "Wrongcat destructor called!" << std::endl;
+}
+
+void	Wrongcat::makeSound() const
+{
+	std::cout << this->_type << " lets out a meoooowwww!" << std::endl;
 }

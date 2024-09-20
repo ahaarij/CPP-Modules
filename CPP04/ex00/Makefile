@@ -1,10 +1,10 @@
-SRC = main.cpp animal.cpp cat.cpp dog.cpp
+SRC = main.cpp animal.cpp cat.cpp dog.cpp wronganimal.cpp wrongcat.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = g++
 RM = rm -rf
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic 
 
-NAME = Scavtrap
+NAME = Animal
 
 all: $(NAME)
 

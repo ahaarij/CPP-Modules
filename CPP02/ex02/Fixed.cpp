@@ -6,7 +6,7 @@
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:21:42 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/09/20 10:10:07 by ahaarij          ###   ########.fr       */
+/*   Updated: 2024/09/20 10:16:37 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Fixed::Fixed(const Fixed &f)
 	*this = f;
 }
 
-int	Fixed::toInt() const
+int Fixed::toInt() const
 {
 	return (int)(_num >> _bits);
 } // nonw we're shifting right, so we're essenntially doing value / 2^8 (256). so the 1280 from the int constructor would be 1280 / 256 = 8.
@@ -60,12 +60,123 @@ Fixed &Fixed::operator=(const Fixed &copy)
 
 int	Fixed::getRawBits(void) const
 {
+	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_num);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
 	this->_num = raw;
+}
+
+// ex02 part
+
+bool	Fixed::operator>(Fixed const &copy)
+{
+	return (this->toFloat() > copy.toFloat());
+}
+
+bool	Fixed::operator>=(Fixed const &copy)
+{
+	return (this->toFloat() >= copy.toFloat());
+}
+
+bool	Fixed::operator<(Fixed const &copy)
+{
+	return (this->toFloat() < copy.toFloat());
+}
+
+bool	Fixed::operator<=(Fixed const &copy)
+{
+	return (this->toFloat() <= copy.toFloat());
+}
+
+bool	Fixed::operator==(Fixed const &copy)
+{
+	return (this->toFloat() == copy.toFloat());
+}
+
+bool	Fixed::operator!=(Fixed const &copy)
+{
+	return (this->toFloat() != copy.toFloat());
+}
+
+float	Fixed::operator+(Fixed const &copy)
+{
+	return (this->toFloat() + copy.toFloat());	
+}
+
+float	Fixed::operator-(Fixed const &copy)
+{
+	return (this->toFloat() - copy.toFloat());
+}
+
+float	Fixed::operator*(Fixed const &copy)
+{
+	return (this->toFloat() * copy.toFloat());
+}
+
+float	Fixed::operator/(Fixed const &copy)
+{
+	return (this->toFloat() / copy.toFloat());
+}
+
+Fixed	Fixed::operator++(void)
+{
+	this->_num++;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(void)
+{
+	this->_num--;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed temp = *this;
+	++this->_num;
+	return (temp);	
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed temp = *this;
+	--this->_num;
+	return (temp);
+}
+
+Fixed	Fixed::min(Fixed &first, Fixed &second)
+{
+	if(first.toFloat() <= second.toFloat())
+		return (first);
+	else
+		return(second);
+}
+
+const Fixed Fixed::min(Fixed const &first, Fixed const &second)
+{
+	if(first.toFloat() <= second.toFloat())
+		return (first);
+	else
+		return (second);
+}
+
+Fixed	Fixed::max(Fixed &first, Fixed &second)
+{
+	if(first.toFloat() >= second.toFloat())
+		return (first);
+	else
+		return (second);
+}
+
+const Fixed Fixed::max(Fixed const &first, Fixed const &second)
+{
+	if(first.toFloat() >= second.toFloat())
+		return (first);
+	else
+		return (second);
 }
 
 std::ostream &operator<<(std::ostream &c, Fixed const &copy)

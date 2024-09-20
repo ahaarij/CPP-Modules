@@ -3,14 +3,14 @@
 
 #include "wronganimal.hpp"
 
-class	wrongcat : public wronganimal
+class	Wrongcat : public Wronganimal
 {
 	public:
-		wrongcat();
-		wrongcat(const cat &copy);
-		~wrongcat();
-		wrongcat &operator=(const wrongcat &copy);
+		Wrongcat();
+		Wrongcat(const Wrongcat &copy);
+		~Wrongcat();
+		Wrongcat &operator=(const Wrongcat &copy);
 		void	makeSound() const;
-}
+};
 
 #endif
