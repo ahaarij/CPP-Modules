@@ -12,6 +12,10 @@ class Brain
 		Brain();
 		Brain(Brain const &copy);
 		virtual ~Brain();
+		Brain &operator=(const Brain &copy);
+		const std::string getIdea(const size_t i);
+		void	setIdea(size_t i, std::string idea);
+		const std::string *getIdeaAddress(const size_t i);
 };
 
 #endif
