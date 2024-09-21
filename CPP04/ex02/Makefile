@@ -1,10 +1,11 @@
-SRC = main.cpp animal.cpp cat.cpp dog.cpp wronganimal.cpp wrongcat.cpp
+SRC = main.cpp animal.cpp cat.cpp dog.cpp brain.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = g++
 RM = rm -rf
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic 
+CPPFLAGS += -fsanitize=address -g3
 
-NAME = Animal
+NAME = Abstract
 
 all: $(NAME)
 
@@ -17,6 +18,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean $(NAME) 
+re: fclean $(NAME)
 
 .PHONY: all clean fclean re

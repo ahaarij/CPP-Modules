@@ -1,9 +1,9 @@
-#include "cat.hpp"
+#include "dog.hpp"
 
-Cat::Cat()
+Dog::Dog()
 {
-	std::cout << "Cat constructor called!" << std::endl;
-	_type = "Cat";
+	std::cout << "Dog constructor called!" << std::endl;
+	_type = "Dog";
 	this->_brain = new Brain();
 	if(!this->_brain)
 	{
@@ -12,9 +12,9 @@ Cat::Cat()
 	}
 }
 
-Cat::Cat(const Cat &copy)
+Dog::Dog(const Dog &copy)
 {
-	std::cout << "Cat copy constructor called!" << std::endl;
+	std::cout << "Dog copy constructor called!" << std::endl;
 	_type = copy._type;
 	_brain = new Brain(*copy._brain);
 	if(!this->_brain)
@@ -24,9 +24,9 @@ Cat::Cat(const Cat &copy)
 	}
 }
 
-Cat &Cat::operator=(Cat const &copy)
+Dog &Dog::operator=(Dog const &copy)
 {
-    std::cout << "Cat Assignment overload called!" << std::endl;
+    std::cout << "Dog Assignment overload called!" << std::endl;
 
     if (this != &copy)
     {
@@ -43,28 +43,28 @@ Cat &Cat::operator=(Cat const &copy)
 	return (*this);
 }
 
-Cat::~Cat()
+Dog::~Dog()
 {
-	std::cout << "Cat destructor called!" << std::endl;
+	std::cout << "Dog destructor called!" << std::endl;
 	delete _brain;
 }
 
-void	Cat::makeSound() const
+void	Dog::makeSound() const
 {
-	std::cout << this->_type << " lets out a meow!" << std::endl;
+	std::cout << this->_type << " lets out a woof!" << std::endl;
 }
 
-void	Cat::getIdeas() const
+void	Dog::getIdeas() const
 {
 	int i = 0;
 	while(i < 3)
 	{
-		std::cout << "Cat idea number : " << i << " : '" << this->_brain->getIdea(i) << "' at address " << this->_brain->getIdeaAddress(i) << std::endl;
+		std::cout << "Dog idea number : " << i << " : '" << this->_brain->getIdea(i) << "' at address " << this->_brain->getIdeaAddress(i) << std::endl;
 		i++;
 	}
 }
 
-void	Cat::setIdea(size_t i, std::string idea)
+void	Dog::setIdea(size_t i, std::string idea)
 {
 	this->_brain->setIdea(i, idea);
 }

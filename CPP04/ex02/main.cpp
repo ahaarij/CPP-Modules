@@ -2,50 +2,6 @@
 #include "cat.hpp"
 #include "dog.hpp"
 
-// int main()
-// {
-// 	const	Animal *test[10];
-// 	int i = 0;
-// 	while(i < 10)
-// 	{
-// 		if(i % 2)
-// 		{
-// 			test[i] = new Cat();
-// 			if(!test[i])
-// 			{
-// 				std::cout << "Memory allocation failed!" << std::endl;
-// 				exit(1);
-// 			}
-// 		}
-// 		else
-// 		{
-// 			test[i] = new Dog();
-// 			if(!test[i])
-// 			{
-// 				std::cout << "Memory allocation failed!" << std::endl;
-// 				exit(1);
-// 			}
-// 		}
-// 		i++;
-// 	}
-
-// 	i = 0;
-// 	while(i < 10)
-// 	{
-// 		std::cout << "Animal type: " << test[i]->getType() << std::endl;
-// 		test[i]->makeSound();
-// 		std::cout << std::endl;
-// 		i++;
-// 	}
-
-// 	i = 0;
-// 	while(i < 10){
-// 		delete (test[i]);
-// 		i++;
-// 	}
-// }
-
-
 int main()
 {
 	// uncomment the following to show that the Animal constructor is
