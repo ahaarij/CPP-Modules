@@ -6,7 +6,7 @@
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 09:12:04 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/08/28 00:27:19 by ahaarij          ###   ########.fr       */
+/*   Updated: 2024/09/24 15:58:00 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@
 #include <iomanip>
 #include <strings.h>
 
+# define RESET		"\x1b[0m"
+# define BOLD		"\x1b[1m"
+# define UNDER		"\x1b[4m"
+# define REV		"\x1b[7m"
+# define GREY		"\x1b[30m"
+# define RED		"\x1b[31m"
+# define GREEN		"\x1b[32m"
+# define YELLOW		"\x1b[33m"
+# define BLUE		"\x1b[34m"
+# define PURPLE		"\x1b[35m"
+# define CYAN		"\x1b[36m"
+# define WHITE		"\x1b[37m"
 
 class contactinfo
 {
@@ -51,6 +63,7 @@ private:
 public:
 	phonebook(void);
 	~phonebook(void);
+	int			exiteof(void);
 	void			add(void);
 	void			search(void);
 	void			print(contactinfo contact);
