@@ -6,16 +6,15 @@
 #    By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/21 09:00:51 by ahaarij           #+#    #+#              #
-#    Updated: 2024/08/28 00:26:00 by ahaarij          ###   ########.fr        #
+#    Updated: 2024/09/25 08:50:54 by ahaarij          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = phonebook.cpp setstuff.cpp phonebook_utils.cpp
+SRC = PhoneBook.cpp Contact.cpp PhoneBook_utils.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = g++
 RM = rm -rf
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-CPPFLAGS += -fsanitize=address -g3
 
 NAME = phonebook
 

@@ -6,13 +6,13 @@
 #    By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/20 12:09:42 by ahaarij           #+#    #+#              #
-#    Updated: 2024/08/20 12:11:57 by ahaarij          ###   ########.fr        #
+#    Updated: 2024/09/25 19:05:45 by ahaarij          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = megaphone.cpp
 OBJ = $(SRC:.cpp=.o)
-CC = g++
+CC = c++
 RM = rm -rf
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 

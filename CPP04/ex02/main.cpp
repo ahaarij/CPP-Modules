@@ -4,7 +4,7 @@
 
 int main()
 {
-	// uncomment the following to show that the Animal constructor is
+	// uncomment to show that the Animal constructor is
 	// now only usable by the inheritant classes
 
 	// const Animal *animal = new Animal();
@@ -67,9 +67,9 @@ int main()
 		exit(1);
 	}
 
-	a->setIdea(0, "I have to sniff it");
-	a->setIdea(1, "I have to pee on it");
-	a->setIdea(2, "I have to sniff it again");
+	a->setIdea(0, "Im gonna touch you");
+	a->setIdea(1, "IM GONNA TOUCH YOU");
+	a->setIdea(2, "IM GONNA BREAK MY MONITOR I SWEAR");
 	// a->setIdea(101, "some shit");
 
 	Dog *b = new Dog(*a);

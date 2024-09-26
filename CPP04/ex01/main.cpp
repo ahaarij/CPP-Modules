@@ -2,58 +2,8 @@
 #include "cat.hpp"
 #include "dog.hpp"
 
-// int main()
-// {
-// 	const	Animal *test[10];
-// 	int i = 0;
-// 	while(i < 10)
-// 	{
-// 		if(i % 2)
-// 		{
-// 			test[i] = new Cat();
-// 			if(!test[i])
-// 			{
-// 				std::cout << "Memory allocation failed!" << std::endl;
-// 				exit(1);
-// 			}
-// 		}
-// 		else
-// 		{
-// 			test[i] = new Dog();
-// 			if(!test[i])
-// 			{
-// 				std::cout << "Memory allocation failed!" << std::endl;
-// 				exit(1);
-// 			}
-// 		}
-// 		i++;
-// 	}
-
-// 	i = 0;
-// 	while(i < 10)
-// 	{
-// 		std::cout << "Animal type: " << test[i]->getType() << std::endl;
-// 		test[i]->makeSound();
-// 		std::cout << std::endl;
-// 		i++;
-// 	}
-
-// 	i = 0;
-// 	while(i < 10){
-// 		delete (test[i]);
-// 		i++;
-// 	}
-// }
-
-
 int main()
 {
-	// uncomment the following to show that the Animal constructor is
-	// now only usable by the inheritant classes
-
-	// const Animal *animal = new Animal();
-	// animal->makeSound();
-
 	std::cout << "\033[34mConstructing\033[0m" << std::endl;
 	const Animal	*meta[10];
 	for (int i = 0; i < 10; i++)
@@ -111,9 +61,9 @@ int main()
 		exit(1);
 	}
 
-	a->setIdea(0, "I have to sniff it");
-	a->setIdea(1, "I have to pee on it");
-	a->setIdea(2, "I have to sniff it again");
+	a->setIdea(0, "Im gonna touch you");
+	a->setIdea(1, "IM GONNA TOUCH YOU");
+	a->setIdea(2, "IM GONNA BREAK MY MONITOR I SWEAR");
 	// a->setIdea(101, "some shit");
 
 	Dog *b = new Dog(*a);

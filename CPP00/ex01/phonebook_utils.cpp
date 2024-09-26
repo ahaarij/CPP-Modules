@@ -6,11 +6,12 @@
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 14:11:05 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/09/24 15:39:42 by ahaarij          ###   ########.fr       */
+/*   Updated: 2024/09/25 09:02:41 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
 std::string		spaces(int n)
 {
@@ -30,7 +31,7 @@ std::string		setwidth(std::string str, unsigned int len)
 	return (str);
 }
 
-int	search_interface(contactinfo contact[8])
+int	search_interface(Contact contact[8])
 {
 	int i = 0;
 	char c = '0';

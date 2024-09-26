@@ -6,73 +6,61 @@
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 09:01:16 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/09/24 16:07:56 by ahaarij          ###   ########.fr       */
+/*   Updated: 2024/09/25 09:30:52 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
-contactinfo::contactinfo(void)
+bool	isStringWhitespaces(const std::string str)
 {
+	size_t i = 0;
+	while(i < str.length())
+	{
+		char c = str[i];
+		if(c != ' ' && c != '\t')
+			return (false);
+		i++;
+	}
+	return (true);
 }
 
-contactinfo::~contactinfo(void)
-{
-}
-
-phonebook::phonebook(void)
+PhoneBook::PhoneBook(void)
 {
 	_i = 0;
 }
 
-phonebook::~phonebook(void)
+PhoneBook::~PhoneBook(void)
 {
 }
-int	phonebook::exiteof(void)
+int	PhoneBook::exiteof(void)
 {
 	if(std::cin.eof() || std::cin.fail())
+	{
+		std::cout << std::endl << RED << "Exiting now" << RESET << std::endl;
 		exit(1);
+	}
 	return 0;
 }
-void	phonebook::add(void)
+void	PhoneBook::add(void)
 {
 	std::string str;
 	str = "";
 
 	if(_i > 7)
 	{
-		std::cout << "Overwriting " << this->_contact[this->_i % 8].getfirstname() << std::endl;
+		std::cout << BOLD << YELLOW << "Overwriting " << RESET << this->_contact[this->_i % 8].getfirstname() << std::endl;
 	}
 	while((exiteof() == 0) && str == "")
 	{
-		std::cout << "Enter First Name:\n";
-		if(std::getline(std::cin, str) && str != "")
-			this->_contact[_i % 8].setfirstname(str);
-	}
-	str = "";
-	while((exiteof() == 0) && str == "")
-	{
-		std::cout << "Enter Last Name:\n";
-		if(std::getline(std::cin, str) && str != "")
-			this->_contact[_i % 8].setlastname(str);
-	}
-	str = "";
-	while((exiteof() == 0) && str == "")
-	{
-		std::cout << "Enter Nickname:\n";
-		if(std::getline(std::cin, str) && str != "")
-			this->_contact[_i % 8].setnickname(str);
-	}
-	str = "";
-	while((exiteof() == 0) && str == "")
-	{
-		std::cout << "Enter Phone Number 😏:\n";
+		std::cout << CYAN << "Enter First Name:" << RESET << std::endl;;
 		if(std::getline(std::cin, str) && str != "")
 		{
-			if(str.find_first_not_of("0123456789"))
-				this->_contact[_i % 8].setnumber(str);
-			else{
-				std::cout << "Invalid Input\n";
+			if(!isStringWhitespaces(str))
+				this->_contact[_i % 8].setfirstname(str);
+			else
+			{
+				std::cout << RED << "Invalid Input" << RESET <<std::endl;
 				str = "";
 			}
 		}
@@ -80,33 +68,86 @@ void	phonebook::add(void)
 	str = "";
 	while((exiteof() == 0) && str == "")
 	{
-		std::cout << "Enter Darkest Secret 👹:\n";
+		std::cout << CYAN << "Enter Last Name:" << RESET << std::endl;
 		if(std::getline(std::cin, str) && str != "")
-			this->_contact[_i % 8].setsecret(str);
+		{
+			if(!isStringWhitespaces(str))
+				this->_contact[_i % 8].setlastname(str);
+			else
+			{
+				std::cout << RED << "Invalid Input" << RESET <<std::endl;
+				str = "";
+			}
+		}
+	}
+	str = "";
+	while((exiteof() == 0) && str == "")
+	{
+		std::cout << CYAN << "Enter Nickname:" << RESET << std::endl;
+		if(std::getline(std::cin, str) && str != "")
+		{
+			if(!isStringWhitespaces(str))
+				this->_contact[_i % 8].setnickname(str);
+			else
+			{
+				std::cout << RED << "Invalid Input" << RESET <<std::endl;
+				str = "";
+			}
+		}
+	}
+	str = "";
+	while((exiteof() == 0) && str == "")
+	{
+		std::cout << CYAN << "Enter Phone Number 😏:" << RESET << std::endl;
+		if(std::getline(std::cin, str) && str != "")
+		{
+			if(str.find_first_not_of("0123456789"))
+				this->_contact[_i % 8].setnumber(str);
+			else
+			{
+				std::cout << RED << "Invalid Input" << RESET <<std::endl;
+				str = "";
+			}
+		}
+	}
+	str = "";
+	while((exiteof() == 0) && str == "")
+	{
+		std::cout << CYAN << "Enter Darkest Secret 👹:" << RESET << std::endl;
+		if(std::getline(std::cin, str) && str != "")
+		{
+			if(!isStringWhitespaces(str))
+				this->_contact[_i % 8].setsecret(str);
+			else
+			{
+				std::cout << RED << "Invalid Input" << RESET <<std::endl;
+				str = "";
+			}
+		}
 	}
 	this->_i++;
 }
 
-void	phonebook::print(contactinfo contact)
+void	PhoneBook::print(Contact contact)
 {
 	if(!contact.getfirstname().size())
 	{
-		std::cout << "Contact does not exist!\n";
+		std::cout << RED << "Contact does not exist!" << RESET << std::endl;
 		return ;
 	}
-	std::cout GREEN << "First Name     : " << contact.getfirstname() << std::endl;
-	std::cout << "Last Name      : " << contact.getlastname() << std::endl;
-	std::cout << "Nick Name      : " << contact.getnickname() << std::endl;
-	std::cout << "Phone Number   : " << contact.getnumber() << std::endl;
-	std::cout << "Darkest Secret : " << contact.getsecret() << std::endl;
+	std::cout << GREEN << "First Name     : " << RESET << contact.getfirstname() << std::endl;
+	std::cout << GREEN << "Last Name      : " << RESET << contact.getlastname() << std::endl;
+	std::cout << GREEN << "Nick Name      : " << RESET << contact.getnickname() << std::endl;
+	std::cout << GREEN << "Phone Number   : " << RESET << contact.getnumber() << std::endl;
+	std::cout << GREEN << "Darkest Secret : " << RESET << contact.getsecret() << std::endl;
 }
 
-void	phonebook::search(void)
+void	PhoneBook::search(void)
 {
 	std::string str;
 	if(this->_i <= 0 || (!search_interface(this->_contact)))
 	{
-		std::cout << RED << "Phonebook is empty!" << RESET << std::endl;
+		std::cout << RED << "PhoneBook is empty!" << RESET << std::endl;
 		return ;
 	}
 	while(!std::cin.eof() || !std::cin.fail())
@@ -131,11 +172,12 @@ void	phonebook::search(void)
 
 int	main()
 {
-	phonebook ph;
+	PhoneBook ph;
 	std::string str;
 	while(str != "EXIT")
 	{
-		std::cout << YELLOW << "Phonebook : " << RESET;
+		std::cout << PURPLE << "Operations: 'ADD' 'SEARCH' 'EXIT'" << RESET << std::endl;
+		std::cout << YELLOW << "PhoneBook : " << RESET;
 		std::getline(std::cin, str);
 		if(str == "ADD")
 		{
@@ -147,9 +189,10 @@ int	main()
 		}
 		else if(std::cin.eof())
 		{
-			std::cout << std::endl;
+			std::cout << std::endl << RED << "Exiting now" << RESET << std::endl;
 			return (0);
 		}
 	}
+	std::cout << RED << "Exiting now" << RESET << std::endl;
 	return (0);
 }
