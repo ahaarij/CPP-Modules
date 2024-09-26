@@ -6,7 +6,7 @@
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 13:39:10 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/09/04 09:34:51 by ahaarij          ###   ########.fr       */
+/*   Updated: 2024/09/26 19:04:29 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ int	open_files(std::string inname, std::string outname, std::ifstream *infile, s
 {
 	(*infile).open(inname, std::fstream::in);
 	(*outfile).open(outname, std::fstream::out);
-	if(!infile || !outfile)
+	if(!(*infile).is_open() || !(*outfile).is_open())
 	{
+		if(!(*infile).is_open())
+			(*infile).close();
+		if(!(*outfile).is_open())
+			(*outfile).close();
 		std::cout << "Cant open files!" << std::endl;
 		return (1);
 	}

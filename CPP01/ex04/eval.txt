@@ -1,2 +1,0 @@
-vernon louis. vlouis
-Vernon was quite knowledgeable about his code, he knew about small things such as Null checks, about how while loops work and he knew the outcomes of certain errors before testing them, such as passing char * when the function demands a char, he knew how double quotes are very different from single quotes in code aswell. Overall he was very knowledgeable as proved by him pursuing a PHD in computer science! 
