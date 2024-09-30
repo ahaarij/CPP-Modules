@@ -1,5 +1,17 @@
-#ifndef CONTACTINFO_HPP
-# define CONTACTINFO_HPP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/30 08:39:11 by ahaarij           #+#    #+#             */
+/*   Updated: 2024/09/30 08:39:12 by ahaarij          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 #include <iostream>
 #include <iomanip>

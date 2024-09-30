@@ -6,7 +6,7 @@
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 09:01:16 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/09/25 09:30:52 by ahaarij          ###   ########.fr       */
+/*   Updated: 2024/09/30 08:46:58 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int	PhoneBook::exiteof(void)
 {
 	if(std::cin.eof() || std::cin.fail())
 	{
-		std::cout << std::endl << RED << "Exiting now" << RESET << std::endl;
-		exit(1);
+		std::cout << RED << "Exiting now" << RESET << std::endl;
+		exit (1);
 	}
 	return 0;
 }

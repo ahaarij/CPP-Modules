@@ -6,7 +6,7 @@
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 09:12:04 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/09/25 09:24:16 by ahaarij          ###   ########.fr       */
+/*   Updated: 2024/09/30 08:42:54 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <iomanip>
 #include <strings.h>
+#include <cstdlib>
 #include "Contact.hpp"
 
 # define RESET		"\x1b[0m"

@@ -6,7 +6,7 @@
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 01:39:06 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/09/25 19:15:30 by ahaarij          ###   ########.fr       */
+/*   Updated: 2024/09/30 09:07:32 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,22 @@ int     Account::checkAmount(void) const
 
 void    Account::_displayTimestamp()
 {
-    time_t  current_time;
-    current_time = time(NULL);
-    std::cout << std::put_time(localtime(&current_time), "[%Y%m%d_%H%M%S] ");
-}
+    // time_t  current_time;
+    // current_time = time(NULL);
+    // std::cout << std::put_time(localtime(&current_time), "[%Y%m%d_%H%M%S] ");
+    time_t now = time(NULL);
+	struct tm timenow = *localtime(&now);
 
+	std::cout << "[" << timenow.tm_year + 1900 <<
+	std::setfill('0') << std::setw(2) << timenow.tm_mon + 1 <<
+	std::setfill('0') << std::setw(2) << timenow.tm_mday << "_" <<
+	std::setfill('0') << std::setw(2) << timenow.tm_hour <<
+	std::setfill('0') << std::setw(2) << timenow.tm_min <<
+	std::setfill('0') << std::setw(2) << timenow.tm_sec <<
+	"] ";
+}
+// use this for running a simple diff.
+// std::cout << "[19920104_091532] ";
 
 
 void    Account::displayAccountsInfos()
