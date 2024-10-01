@@ -6,17 +6,15 @@
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 12:30:22 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/08/30 17:33:53 by ahaarij          ###   ########.fr       */
+/*   Updated: 2024/10/01 08:46:12 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie* zombieHorde(int len, std::string str);
-
 int	main()
 {
-	int amount = 2;
+	int amount = 5;
 	int	i = 0;
 	Zombie *horde = zombieHorde(amount, "aarij");
 	while(i < amount)
@@ -24,5 +22,5 @@ int	main()
 		horde[i].announce();
 		i++;		
 	}
-	delete []horde;
+	delete [] horde;
 }

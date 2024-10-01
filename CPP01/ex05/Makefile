@@ -6,13 +6,13 @@
 #    By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/04 16:51:42 by ahaarij           #+#    #+#              #
-#    Updated: 2024/09/04 16:57:03 by ahaarij          ###   ########.fr        #
+#    Updated: 2024/09/30 18:54:46 by ahaarij          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = main.cpp harl.cpp
 OBJ = $(SRC:.cpp=.o)
-CC = g++
+CC = c++
 RM = rm -rf
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
@@ -22,6 +22,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp
+	$(CC) $(CPPFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)

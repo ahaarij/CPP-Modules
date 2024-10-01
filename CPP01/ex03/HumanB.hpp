@@ -6,9 +6,12 @@
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 13:01:11 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/09/03 13:26:58 by ahaarij          ###   ########.fr       */
+/*   Updated: 2024/09/30 18:53:45 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
 #include <iostream>
 #include <iomanip>
@@ -25,3 +28,5 @@ public:
 	void	setWeapon(Weapon &weapon);
     void    attack();
 };
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 22:16:58 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/08/31 22:46:37 by ahaarij          ###   ########.fr       */
+/*   Updated: 2024/10/01 08:53:46 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ int main()
     std::cout << &stringREF << std::endl;
 
     std::cout << str << std::endl;
-    std::cout << stringPTR << std::endl;
+    std::cout << *stringPTR << std::endl;
     std::cout << stringREF << std::endl;
+
+    // std::string str2 = "byebye" << std::endl;
+    // stringREF = str2;
+    // std::cout << str;
 }

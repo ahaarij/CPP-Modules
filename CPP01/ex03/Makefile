@@ -6,22 +6,25 @@
 #    By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/31 23:00:45 by ahaarij           #+#    #+#              #
-#    Updated: 2024/09/03 13:27:38 by ahaarij          ###   ########.fr        #
+#    Updated: 2024/10/01 08:57:13 by ahaarij          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 OBJ = $(SRC:.cpp=.o)
-CC = g++
+CC = c++
 RM = rm -rf
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-NAME = lol
+NAME = Weapon
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp
+	$(CC) $(CPPFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)

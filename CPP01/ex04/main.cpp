@@ -6,7 +6,7 @@
 /*   By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 13:39:10 by ahaarij           #+#    #+#             */
-/*   Updated: 2024/09/26 19:04:29 by ahaarij          ###   ########.fr       */
+/*   Updated: 2024/09/30 17:29:38 by ahaarij          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 int	open_files(std::string inname, std::string outname, std::ifstream *infile, std::ofstream *outfile)
 {
-	(*infile).open(inname, std::fstream::in);
-	(*outfile).open(outname, std::fstream::out);
+	(*infile).open(inname.c_str(), std::fstream::in);
+	(*outfile).open(outname.c_str(), std::fstream::out);
 	if(!(*infile).is_open() || !(*outfile).is_open())
 	{
 		if(!(*infile).is_open())
@@ -61,8 +61,13 @@ int	main(int argc, char **argv)
 		std::cout << "Invalid parameters!" << std::endl;
 	else
 	{
+		if(std::string(argv[2]).empty())
+		{
+			std::cout << "Invalid parameters!" << std::endl;
+			return (1);
+		}
 		inname = argv[1];
-		outname = inname + ".replace"; 
+		outname = inname + ".replace";
 		if(open_files(inname, outname, &infile, &outpfile) == 1)
 			return (1);
 		while(!infile.eof() && infile >> std::noskipws >> c)
