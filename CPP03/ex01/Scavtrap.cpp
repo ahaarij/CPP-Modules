@@ -1,38 +1,38 @@
-#include "Scavtrap.hpp"
+#include "ScavTrap.hpp"
 
-Scavtrap::Scavtrap() : Claptrap("", 100, 50, 20)
+ScavTrap::ScavTrap() : ClapTrap("", 100, 50, 20)
 {
-	std::cout << "Scavtrap with no name has been created!" << std::endl;
+	std::cout << "ScavTrap with no name has been created!" << std::endl;
 }
 
-Scavtrap::Scavtrap(std::string name) : Claptrap(name, 100, 50, 20)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20)
 {
-	std::cout << "Scavtrap named " << name << " joins the fight!" << std::endl;
+	std::cout << "ScavTrap named " << name << " joins the fight!" << std::endl;
 }
 
-Scavtrap::~Scavtrap()
+ScavTrap::~ScavTrap()
 {
-	std::cout << "Scavtrap " << _name << " destroyed!" << std::endl;
+	std::cout << "ScavTrap " << _name << " destroyed!" << std::endl;
 }
 
-Scavtrap::Scavtrap(Scavtrap const &copy)
+ScavTrap::ScavTrap(ScavTrap const &copy)
 {
-	std::cout << "Scavtrap copy constructor called for " << _name << std::endl;
+	std::cout << "ScavTrap copy constructor called for " << _name << std::endl;
 	operator=(copy);
 }
 
-void	Scavtrap::attack(std::string const &target)
+void	ScavTrap::attack(std::string const &target)
 {
 	if(_energy >= 1)
 	{
-		std::cout << "Scavtrap " << _name << " attacks " << target << " causing " << _att_dmg << " damage!" << std::endl;
+		std::cout << "ScavTrap " << _name << " attacks " << target << " causing " << _att_dmg << " damage!" << std::endl;
 		_energy--;
 	}
 	else
-		std::cout << "Scavtrap " << _name << " does not have enough energy! " << "(" << _energy << ")" << std::endl;
+		std::cout << "ScavTrap " << _name << " does not have enough energy! " << "(" << _energy << ")" << std::endl;
 }
 
-void	Scavtrap::guardGate()
+void	ScavTrap::guardGate()
 {
-	std::cout << "Scavtrap " << _name << "is guarding the gate!" << std::endl;
+	std::cout << "ScavTrap " << _name << "is guarding the gate!" << std::endl;
 }

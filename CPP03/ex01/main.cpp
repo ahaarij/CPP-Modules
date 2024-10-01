@@ -1,10 +1,10 @@
-#include "Claptrap.hpp"
-#include "Scavtrap.hpp"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main()
 {
-	Claptrap a("Aarij");
-	Scavtrap b("Pierce");
+	ClapTrap a("Aarij");
+	ScavTrap b("Pierce");
 
 	b.takeDamage(2);
 	b.beRepaired(2);
