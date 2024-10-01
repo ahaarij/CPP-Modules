@@ -1,8 +1,8 @@
-SRC = main.cpp Claptrap.cpp
+SRC = main.cpp ClapTrap.cpp
 OBJ = $(SRC:.cpp=.o)
-CC = g++
+CC = c++
 RM = rm -rf
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = Claptrap
 
@@ -13,6 +13,9 @@ $(NAME): $(OBJ)
 
 clean:
 	$(RM) $(OBJ)
+
+%.o: %.cpp
+	$(CC) $(CPPFLAGS) -c $< -o $@
 
 fclean: clean
 	$(RM) $(NAME)

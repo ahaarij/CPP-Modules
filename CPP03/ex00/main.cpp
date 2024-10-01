@@ -1,9 +1,9 @@
-#include "Claptrap.hpp"
+#include "ClapTrap.hpp"
 
 int	main()
 {
-	Claptrap a("Aarij");
-	Claptrap b("Pierce");
+	ClapTrap a("Aarij");
+	ClapTrap b("Pierce");
 
 	b.takeDamage(2);
 	b.beRepaired(2);
