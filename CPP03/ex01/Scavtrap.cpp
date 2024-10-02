@@ -15,7 +15,7 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap " << _name << " destroyed!" << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &copy)
+ScavTrap::ScavTrap(ScavTrap const &copy) : ClapTrap(copy)
 {
 	std::cout << "ScavTrap copy constructor called for " << _name << std::endl;
 	operator=(copy);
@@ -34,5 +34,15 @@ void	ScavTrap::attack(std::string const &target)
 
 void	ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap " << _name << "is guarding the gate!" << std::endl;
+	std::cout << "ScavTrap " << _name << " is guarding the gate!" << std::endl;
+}
+
+ScavTrap &ScavTrap::operator=(ScavTrap const &copy)
+{
+	std::cout << "ScavTrap Assignment overload called" << std::endl;
+	_name = copy._name;
+	_hp = copy._hp;
+	_energy = copy._energy;
+	_att_dmg = copy._att_dmg;
+	return (*this);
 }

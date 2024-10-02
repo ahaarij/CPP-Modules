@@ -1,42 +1,52 @@
-#include "Scavtrap.hpp"
+#include "ScavTrap.hpp"
 
-Scavtrap::Scavtrap() : Claptrap("Noob", 100, 50, 20)
+ScavTrap::ScavTrap() : ClapTrap("Noob", 100, 50, 20)
 {
-	std::cout << "Scavtrap with noob name has been created!" << std::endl;
+	std::cout << "ScavTrap with noob name has been created!" << std::endl;
 }
 
-Scavtrap::Scavtrap(std::string name) : Claptrap(name, 100, 50, 20)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20)
 {
-	std::cout << "Scavtrap named " << name << " joins the fight!" << std::endl;
+	std::cout << "ScavTrap named " << name << " joins the fight!" << std::endl;
 }
 
-Scavtrap::~Scavtrap()
+ScavTrap::~ScavTrap()
 {
-	std::cout << "Scavtrap " << _name << " destroyed!" << std::endl;
+	std::cout << "ScavTrap " << _name << " destroyed!" << std::endl;
 }
 
-Scavtrap::Scavtrap(Scavtrap const &copy)
+ScavTrap::ScavTrap(ScavTrap const &copy) : ClapTrap(copy)
 {
-	std::cout << "Scavtrap copy constructor called for " << _name << std::endl;
+	std::cout << "ScavTrap copy constructor called for " << _name << std::endl;
 	operator=(copy);
 }
 
-void	Scavtrap::attack(std::string const &target)
+void	ScavTrap::attack(std::string const &target)
 {
 	if(_energy >= 1 && _hp > 0)
 	{
-		std::cout << "Scavtrap " << _name << " attacks " << target << " causing " << _att_dmg << " damage!" << std::endl;
+		std::cout << "ScavTrap " << _name << " attacks " << target << " causing " << _att_dmg << " damage!" << std::endl;
 		_energy--;
 	}
 	else if(_energy >= 1 && _hp <= 0)
 	{
-		std::cout << "Scavtrap " << _name << " does not have enough HP! " << "(" << _hp << ")" << std::endl;
+		std::cout << "ScavTrap " << _name << " does not have enough HP! " << "(" << _hp << ")" << std::endl;
 	}
 	else
-		std::cout << "Scavtrap " << _name << " does not have enough energy! " << "(" << _energy << ")" << std::endl;
+		std::cout << "ScavTrap " << _name << " does not have enough energy! " << "(" << _energy << ")" << std::endl;
 }
 
-void	Scavtrap::guardGate()
+void	ScavTrap::guardGate()
 {
-	std::cout << "Scavtrap " << _name << "is guarding the gate!" << std::endl;
+	std::cout << "ScavTrap " << _name << " is guarding the gate!" << std::endl;
+}
+
+ScavTrap &ScavTrap::operator=(ScavTrap const &copy)
+{
+	std::cout << "ScavTrap Assignment overload called" << std::endl;
+	_name = copy._name;
+	_hp = copy._hp;
+	_energy = copy._energy;
+	_att_dmg = copy._att_dmg;
+	return (*this);
 }

@@ -1,27 +1,37 @@
-#include "Fragtrap.hpp"
+#include "FragTrap.hpp"
 
-Fragtrap::Fragtrap(): Claptrap("Noob", 100, 100, 30)
+FragTrap::FragTrap(): ClapTrap("Noob", 100, 100, 30)
 {
-	std::cout << "Fragtrap with noob name has been created!" << std::endl;
+	std::cout << "FragTrap with noob name has been created!" << std::endl;
 }
 
-Fragtrap::Fragtrap(std::string name) : Claptrap(name, 100, 100, 30)
+FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 30)
 {
-	std::cout << "Fragtrap named " << name << " joins the fight!" << std::endl;
+	std::cout << "FragTrap named " << name << " joins the fight!" << std::endl;
 }
 
-Fragtrap::~Fragtrap()
+FragTrap::~FragTrap()
 {
-	std::cout << "Fragtrap " << _name << " destroyed" << std::endl;
+	std::cout << "FragTrap " << _name << " destroyed" << std::endl;
 }
 
-Fragtrap::Fragtrap(Fragtrap const &copy)
+FragTrap::FragTrap(FragTrap const &copy) : ClapTrap(copy)
 {
-	std::cout << "Fragtrap copy constructor called for " << _name << std::endl;
+	std::cout << "FragTrap copy constructor called for " << _name << std::endl;
 	operator=(copy);
 }
 
-void	Fragtrap::highFiveGuys()
+void	FragTrap::highFiveGuys()
 {
 	std::cout << "You get a high five! And you get a high five! Everyone gets high fives!!" << std::endl;
+}
+
+FragTrap &FragTrap::operator=(FragTrap const &copy)
+{
+	std::cout << "FragTrap Assignment overload called" << std::endl;
+	_name = copy._name;
+	_hp = copy._hp;
+	_energy = copy._energy;
+	_att_dmg = copy._att_dmg;
+	return (*this);
 }
