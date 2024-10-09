@@ -1,4 +1,4 @@
-#include "dog.hpp"
+#include "Dog.hpp"
 
 Dog::Dog()
 {
@@ -12,7 +12,7 @@ Dog::Dog()
 	}
 }
 
-Dog::Dog(const Dog &copy)
+Dog::Dog(const Dog &copy) : Animal(copy)
 {
 	std::cout << "Dog copy constructor called!" << std::endl;
 	_type = copy._type;

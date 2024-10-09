@@ -1,6 +1,6 @@
-#include "animal.hpp"
-#include "cat.hpp"
-#include "dog.hpp"
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
 
 int main()
 {
@@ -40,7 +40,6 @@ int main()
 	std::cout << "\033[34mTesting\033[0m" << std::endl;
 	for (int i = 0; i < 10; i++)
 	{
-		std::cout << std::endl;
 		std::cout << "Animal _type: " << meta[i]->getType() << std::endl;
 		meta[i]->makeSound();
 		std::cout << std::endl;
@@ -49,7 +48,10 @@ int main()
 
 	std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
 	for (int i = 0; i < 10; i++)
+	{
 		delete(meta[i]);
+		std::cout << std::endl;
+	}
 
 //THIS PART IS FOR TESTING DEEP COPY ↓
 

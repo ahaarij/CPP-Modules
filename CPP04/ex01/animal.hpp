@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <stdlib.h>
 
 class	Animal
 {

@@ -4,16 +4,16 @@
 #include <iomanip>
 #include <iostream>
 
-class	Wronganimal
+class	WrongAnimal
 {
 	protected:
 		std::string _type;
 	public:
-		Wronganimal();
-		Wronganimal(std::string type);
-		Wronganimal(const Wronganimal &copy);
-		Wronganimal &operator=(const Wronganimal &copy);
-		~Wronganimal();
+		WrongAnimal();
+		WrongAnimal(std::string type);
+		WrongAnimal(const WrongAnimal &copy);
+		WrongAnimal &operator=(const WrongAnimal &copy);
+		~WrongAnimal();
 		std::string getType() const;
 		void		setType(std::string type);
 		void		makeSound() const;

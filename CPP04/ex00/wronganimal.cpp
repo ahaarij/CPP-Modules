@@ -1,46 +1,46 @@
-#include "wronganimal.hpp"
+#include "WrongAnimal.hpp"
 
-Wronganimal::Wronganimal()
+WrongAnimal::WrongAnimal()
 {
 	std::cout << "WrongAnimal Default constructor called!" << std::endl;
 	_type = "WrongAnimal";
 }
 
-Wronganimal::Wronganimal(std::string type)
+WrongAnimal::WrongAnimal(std::string type)
 {
 	std::cout << "WrongAnimal Constructor with specified type called!" << std::endl;
 	_type = type;
 }
 
-Wronganimal::Wronganimal(const Wronganimal &copy)
+WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 {
 	std::cout << "WrongAnimal Copy constructor called!" << std::endl;
 	operator=(copy);
 }
 
-Wronganimal &Wronganimal::operator=(Wronganimal const &copy)
+WrongAnimal &WrongAnimal::operator=(WrongAnimal const &copy)
 {
 	std::cout << "WrongAnimal Assignment overload called!" << std::endl;
 	_type = copy._type;
 	return (*this);
 }
 
-std::string Wronganimal::getType() const
+std::string WrongAnimal::getType() const
 {
 	return _type;
 }
 
-void	Wronganimal::setType(std::string type)
+void	WrongAnimal::setType(std::string type)
 {
 	_type = type;
 }
 
-void	Wronganimal::makeSound() const
+void	WrongAnimal::makeSound() const
 {
 	std::cout << "The WrongAnimal made a sound!" << std::endl;
 }
 
-Wronganimal::~Wronganimal()
+WrongAnimal::~WrongAnimal()
 {
 	std::cout << "WrongAnimal destructor called!" << std::endl;
 }

@@ -1,4 +1,4 @@
-#include "cat.hpp"
+#include "Cat.hpp"
 
 Cat::Cat()
 {
@@ -12,7 +12,7 @@ Cat::Cat()
 	}
 }
 
-Cat::Cat(const Cat &copy)
+Cat::Cat(const Cat &copy) : Animal(copy)
 {
 	std::cout << "Cat copy constructor called!" << std::endl;
 	_type = copy._type;

@@ -1,4 +1,4 @@
-#include "brain.hpp"
+#include "Brain.hpp"
 
 Brain::Brain()
 {
@@ -48,12 +48,13 @@ const std::string *Brain::getIdeaAddress(const size_t i)
 		return &(this->_ideas[i]);
 	}
 	else
-		return nullptr;
+		return NULL;
 }
 
 void	Brain::setIdea(size_t i, std::string idea)
 {
 	if (i < 100)
 		this->_ideas[i] = idea;
-	std::cout << "Dont get too many ideas now pal!" << std::endl;
+	else
+		std::cout << "Dont get too many ideas now pal!" << std::endl;
 }

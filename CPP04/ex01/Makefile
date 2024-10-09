@@ -1,9 +1,8 @@
-SRC = main.cpp animal.cpp cat.cpp dog.cpp brain.cpp
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 OBJ = $(SRC:.cpp=.o)
-CC = g++
+CC = c++
 RM = rm -rf
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic 
-CPPFLAGS += -fsanitize=address -g3
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = Brain
 
@@ -11,6 +10,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp
+	$(CC) $(CPPFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)
