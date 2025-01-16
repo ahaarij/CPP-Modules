@@ -22,6 +22,8 @@ class	Bureaucrat
 		void					setGrade(int grade);
 		std::string				GradeTooLowException(void);
 		std::string				GradeTooHighException(void);
+		void					Decrement(void);
+		void					Increment(void);
 };
 
 std::ostream &operator<<(std::ostream &c, Bureaucrat const &copy);

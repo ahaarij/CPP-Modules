@@ -2,7 +2,7 @@
 
 // Constructors
 
-Bureaucrat::Bureaucrat():_name("Aarij"), _grade(69)
+Bureaucrat::Bureaucrat():_grade(69), _name("Aarij")
 {
 	std::cout << "Default Constructor Called for " << this->getName() << " who has a grade of " << this->getGrade() << std::endl;
 }
@@ -26,7 +26,17 @@ Bureaucrat::Bureaucrat(std::string name, int grade):_name(name)
 
 // increment and decrement
 
-Bureaucrat::Decrement
+void	Bureaucrat::Decrement(void)
+{
+	std::cout << "Trying to decrement grade of" << this->getName() << std::endl;
+	this->setGrade(this->_grade - 1);
+}
+
+void	Bureaucrat::Increment(void)
+{
+	std::cout << "Trying to increment grade of" << this->getName() << std::endl;
+	this->setGrade(this->_grade + 1);
+}
 
 
 // getters and setters
@@ -44,9 +54,9 @@ const int &Bureaucrat::getGrade() const
 void Bureaucrat::setGrade(int grade)
 {
 	if(grade < 1)
-		throw Bureaucrat::GradeTooHighException ;
+		throw Bureaucrat::GradeTooHighException() ;
 	else if(grade > 150)
-		throw Bureaucrat::GradeTooLowException ;
+		throw Bureaucrat::GradeTooLowException() ;
 	else
 		this->_grade = grade;
 }
@@ -69,7 +79,11 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)
 
 // ostream overload for obj
 
-
+std::ostream &operator<<(std::ostream &c, Bureaucrat const &copy)
+{
+	c << copy.getName() << " has a grade of " << copy.getGrade() << std::endl;
+	return (c);
+}
 
 // exception handling? i guess?
 
@@ -78,7 +92,7 @@ std::string Bureaucrat::GradeTooHighException(void)
 	return ("Grade Too High!\n");
 }
 
-std::string Bureaucrat::GradeTooLowException(void)
+std::string Bureaucrat::GradeTooLowException(void) const throw
 {
 	return ("Grade Too Low!\n");
 }
