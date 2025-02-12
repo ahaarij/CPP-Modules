@@ -17,12 +17,7 @@ Animal::Animal(const Animal &copy)
 	std::cout << "Animal Copy constructor called!" << std::endl;
 	operator=(copy);
 }
-
-Animal &Animal::operator=(Animal const &copy)
-{
-	std::cout << "Animal Assignment overload called" << std::endl;
-	_type = copy._type;
-	return (*this);
+uck youis);
 }
 
 

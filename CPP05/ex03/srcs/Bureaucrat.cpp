@@ -1,4 +1,4 @@
-#include "Bureaucrat.hpp"
+#include "../includes/Bureaucrat.hpp"
 
 // Constructors
 
@@ -105,9 +105,18 @@ void	Bureaucrat::signForm(Form &form)
 	form.beSigned(*this);
 }
 
+
 // destructor
 
 Bureaucrat::~Bureaucrat()
 {
 	std::cout << "Destructor called for " << this->getName() << std::endl;
+}
+
+
+// new stuff in ex02
+
+void	Bureaucrat::executeForm(Form &form) const
+{
+	form.execute(*this);
 }

@@ -1,125 +1,143 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-int main()
+int main(void)
 {
-    std::cout << YELLOW << BOLD << UNDER << "Test 1: Testing NO Exceptions" << RESET << std::endl << std::endl;
-    // test 1; blank constructor;
-    {
-        Bureaucrat *a = new Bureaucrat();
-        std::cout << *a << std::endl;
-        try
-        {
-            a->Increment();
-        }
-        catch(Bureaucrat::GradeTooHighException &e)
-        {
-            std::cerr << "+-------------------------------------------------------+" << std::endl;
-            std::cerr << RED << "Incrementing grade of " << a->getName() << " failed!\nReason: " << BOLD << e.what() << RESET;
-            std::cerr << "+-------------------------------------------------------+" << std::endl;
+	{
+		std::cout << "\033[34mConstructing\033[0m" << std::endl;
+		Bureaucrat *a = new Bureaucrat();
+		Form *b = new Form();
+		std::cout << std::endl;
 
-        }
+		std::cout << "\033[34mTesting\033[0m" << std::endl;
+		std::cout << *a;
+		std::cout << *b;
 
-        std::cout << *a << std::endl;
-        
-        try
-        {
-            a->Decrement();
-        }
-        catch(Bureaucrat::GradeTooLowException &e)
-        {
-            std::cerr << "=-------------------------------------------------------=" << std::endl;
-            std::cerr << RED << "Decrementing grade of " << a->getName() << " failed!\nReason: " << BOLD << e.what() << RESET;
-            std::cerr << "=-------------------------------------------------------=" << std::endl;
-        }
+		try
+		{
+			b->beSigned(*a);
+		}
+		catch(Bureaucrat::GradeTooLowException &e)
+		{
+			std::cerr << a->getName() << " was not able to sign " << b->getName() << ": " << e.what() << std::endl;
+		}
 
-        std::cout << *a << std::endl;
+		std::cout << *b;
+		std::cout << std::endl;
 
+		std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
+		delete a;
+		delete b;
+		std::cout << std::endl;
+	}
+	std::cout << "-------------------------------------------------------" << std::endl;
+	{
+		std::cout << std::endl;
 
-        delete a;
-    }
+		std::cout << "\033[34mConstructing\033[0m" << std::endl;
+		Bureaucrat *a = new Bureaucrat("Assistant", 145);
+		Bureaucrat *b = new Bureaucrat("CEO", 1);
+		Form *c = new Form("Rent Contract", 140, 100);
+		std::cout << std::endl;
 
-    std::cout << std::endl << std::endl << YELLOW << BOLD << UNDER << "Test 2: Testing GradeTooHighException" << RESET << std::endl << std::endl;
+		std::cout << "\033[34mTesting\033[0m" << std::endl;
+		std::cout << *a;
+		std::cout << *b;
+		std::cout << *c;
 
-    // test 2;
-    {
-        Bureaucrat *a = new Bureaucrat(1);
-        std::cout << *a << std::endl;
-        try
-        {
-            a->Increment();
-        }
-        catch(Bureaucrat::GradeTooHighException &e)
-        {
-            std::cerr << "+-------------------------------------------------------+" << std::endl;
-            std::cerr << RED << "Incrementing grade of " << a->getName() << " failed!\nReason: " << BOLD << e.what() << RESET;
-            std::cerr << "+-------------------------------------------------------+" << std::endl;
-        }
+		// Assistant signs the Form
+		try
+		{
+			// c->beSigned(*a);
+			a->signForm(*c);
+		}
+		catch(Bureaucrat::GradeTooLowException &e)
+		{
+			std::cerr << "\033[33m" << a->getName() << " was not able to sign the Form " << c->getName() << ": " << e.what() << "\033[0m" << std::endl;
+		}
 
-        std::cout << *a << std::endl;
+		// CEO signs the Form
+		std::cout << *c;
+		try
+		{
+			c->beSigned(*b);
+			// b->signForm(*c);
+		}
+		catch(Bureaucrat::GradeTooLowException &e)
+		{
+			std::cerr << "\033[33m" << b->getName() << " was not able to sign the Form " << c->getName() << ": " << e.what() << "\033[0m" << std::endl;
+		}
+		std::cout << *c;
 
-        try
-        {
-            a->Decrement();
-        }
-        catch(Bureaucrat::GradeTooLowException &e)
-        {
-            std::cerr << "=-------------------------------------------------------=" << std::endl;
-            std::cerr << RED << "Decrementing grade of " << a->getName() << " failed!\nReason: " << BOLD << e.what() << RESET;
-            std::cerr << "=-------------------------------------------------------=" << std::endl;   
-        }
+		// try signing the from again
+		b->signForm(*c);
+		std::cout << std::endl;
 
-        std::cout << *a << std::endl;
+		std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
+		delete a;
+		delete b;
+		delete c;
+		std::cout << std::endl;
+	}
+	std::cout << "-------------------------------------------------------" << std::endl;
+	{
+		std::cout << std::endl;
 
-        delete a;
-    }
+		std::cout << "\033[34mConstructing\033[0m" << std::endl;
+		Form *a = NULL;
 
-    std::cout << std::endl << std::endl << YELLOW << BOLD << UNDER << "Test 3: Testing GradeTooLowException" << RESET << std::endl << std::endl;
+		// sign-grade too high
+		try
+		{
+			a = new Form(160, 145);
+		}
+		catch (Form::GradeTooLowException &e)
+		{
+			std::cerr << "\033[33mConstructing default failed: " <<
+			e.what() << "\033[0m" << std::endl;
+		}
 
-    //test 3;
-    {
-        Bureaucrat *a = new Bureaucrat(150);
-        std::cout << *a << std::endl;
-        try
-        {
-            a->Increment();
-        }
-        catch(Bureaucrat::GradeTooHighException &e)
-        {
-            std::cerr << "+-------------------------------------------------------+" << std::endl;
-            std::cerr << RED << "Incrementing grade of " << a->getName() << " failed!\nReason: " << BOLD << e.what() << RESET;
-            std::cerr << "+-------------------------------------------------------+" << std::endl;
-        }
+		// exec-grade too high
+		try
+		{
+			a = new Form(145, 160);
+		}
+		catch (Form::GradeTooLowException &e)
+		{
+			std::cerr << "\033[33mConstructing default failed: " <<
+			e.what() << "\033[0m" << std::endl;
+		}
 
-        std::cout << *a << std::endl;
+		// sign-grade too low
+		try
+		{
+			a = new Form(-15, 145);
+		}
+		catch (Form::GradeTooHighException &e)
+		{
+			std::cerr << "\033[33mConstructing default failed: " <<
+			e.what() << "\033[0m" << std::endl;
+		}
 
-        try
-        {
-            a->Decrement();
-        }
-        catch(Bureaucrat::GradeTooLowException &e)
-        {
-            std::cerr << "=-------------------------------------------------------=" << std::endl;
-            std::cerr << RED << "Decrementing grade of " << a->getName() << " failed!\nReason: " << BOLD << e.what() << RESET;
-            std::cerr << "=-------------------------------------------------------=" << std::endl;   
-        }
+		// exec-grade too low
+		try
+		{
+			a = new Form(145, -15);
+		}
+		catch (Form::GradeTooHighException &e)
+		{
+			std::cerr << "\033[33mConstructing default failed: " <<
+			e.what() << "\033[0m" << std::endl;
+		}
 
-        std::cout << *a << std::endl;
-
-        try
-        {
-            a->Decrement();
-        }
-        catch(Bureaucrat::GradeTooLowException &e)
-        {
-            std::cerr << "=-------------------------------------------------------=" << std::endl;
-            std::cerr << RED << "Decrementing grade of " << a->getName() << " failed!\nReason: " << BOLD << e.what() << RESET;
-            std::cerr << "=-------------------------------------------------------=" << std::endl;   
-        }
-
-        std::cout << *a << std::endl;
-
-        delete a;
-    }
-
-
+		// Deconstruction to prevent unused variable, in this case will never be called
+		if (a != NULL)
+		{
+			std::cout << std::endl;
+			std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
+			delete a;
+		}
+		std::cout << std::endl;
+	}
+	return (0);
 }

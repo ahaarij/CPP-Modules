@@ -1,10 +1,13 @@
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC_FILES = main.cpp A.cpp B.cpp C.cpp Base.cpp
+SRC_DIR = srcs/
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 RM = rm -rf
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Bureaucrat
+SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
+
+NAME = Base
 
 all: $(NAME)
 

@@ -27,6 +27,7 @@ class	Bureaucrat
 		void					Decrement(void);
 		void					Increment(void);
 		void					signForm(Form &form);
+		void					executeForm(Form &form)const;
 
 
 	// derives from std::exception which is a pre-defined class

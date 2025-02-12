@@ -71,7 +71,10 @@
         "utility": "cpp",
         "fstream": "cpp",
         "execution": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "__bits": "cpp",
+        "charconv": "cpp",
+        "forward_list": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
