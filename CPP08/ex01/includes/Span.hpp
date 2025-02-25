@@ -1,9 +1,9 @@
 #pragma once
 
 #include <iostream>
+#include <exception>
+#include <vector>
 
-
-template<typename T>
 class   Span
 {
     private:
@@ -11,15 +11,26 @@ class   Span
         unsigned int        _n;
     public:
         Span();
+        ~Span();
         Span(unsigned int n);
         Span(const Span &copy);
         Span &operator=(const Span &copy);
-        ~Span();
 
         // members function
 
         void addNumber(int n);
         int shortestSpan();
         int longestSpan();
-        void    addNumber(std::vector<int>::iterator.begin(), std::vector<int>::iterator.end());
-}
+        void    addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+
+        class ContainerFullException : public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        };
+        class NotEnoughNumbersException : public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        };
+};

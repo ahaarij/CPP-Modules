@@ -1,4 +1,4 @@
-SRC_FILES = main.cpp Span.cpp
+SRC_FILES = main.cpp
 SRC_DIR = srcs/
 OBJ = $(SRC:.cpp=.o)
 CC = c++
@@ -7,7 +7,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
 
-NAME = Span
+NAME = Mutant
 
 all: $(NAME)
 

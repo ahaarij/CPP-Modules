@@ -74,7 +74,8 @@
         "filesystem": "cpp",
         "__bits": "cpp",
         "charconv": "cpp",
-        "forward_list": "cpp"
+        "forward_list": "cpp",
+        "list": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
