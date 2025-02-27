@@ -17,6 +17,7 @@ class   BitcoinExchange
 
         void    readDatabase();
         void    printDatabase();
+        void    readInput();
 
     // methods to make
     // read date, read price, read file to get the input
