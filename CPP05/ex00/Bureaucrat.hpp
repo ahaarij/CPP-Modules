@@ -26,7 +26,7 @@ class	Bureaucrat
 
 
 	// derives from std::exception which is a pre-defined class
-	// it also provides a virtual what() so it can be changed for better error descriptions.
+	// it also provides a virtual what() so it can be overidden for better error descriptions.
 
 	class	GradeTooHighException: public std::exception
 	{

@@ -38,7 +38,6 @@ void	Bureaucrat::Increment(void)
 	this->setGrade(this->_grade - 1);
 }
 
-
 // getters and setters
 
 const std::string &Bureaucrat::getName() const
@@ -76,7 +75,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)
 	return (*this);
 }
 
-
 // ostream overload for obj
 
 std::ostream &operator<<(std::ostream &c, Bureaucrat const &copy)
@@ -85,7 +83,6 @@ std::ostream &operator<<(std::ostream &c, Bureaucrat const &copy)
 	return (c);
 }
 
-// exception handling? i guess?
 // so the what() is is basicaly its used to retrieve a descriptive error msg when an exception is thrown. basically
 // just provides human readable message describing the error.
 
