@@ -1,0 +1,13 @@
+ok so how it works is
+
+pair numbers together, if theres odd number of elements, one will be unpaired.
+
+internal sort within pairs, so smaller element is first.
+
+recursively sort the larger pairs
+
+the largest elements from each pair form the initial main chain. smallest element of the first pair is usually inserted at the beginning of the chain.
+
+the smaller elements (pend) are then innserted innto the main chain.
+
+eachh pend element is insertedd into the appropriate position in the main chain using binary search.
