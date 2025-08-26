@@ -17,7 +17,9 @@ class   BitcoinExchange
 
         void    readDatabase();
         void    printDatabase();
-        void    readInput();
+        void    readInput(std::string file);
+        int     Parsing(int month, int day, std::string raate, float rate, std::string line);
+        void    printOutput(std::string inputdate, float btcs);
 
     // methods to make
     // read date, read price, read file to get the input
