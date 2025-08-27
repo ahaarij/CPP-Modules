@@ -6,11 +6,11 @@
 #    By: ahaarij <ahaarij@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/21 09:00:51 by ahaarij           #+#    #+#              #
-#    Updated: 2024/09/30 08:58:45 by ahaarij          ###   ########.fr        #
+#    Updated: 2025/03/17 15:33:02 by ahaarij          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = PhoneBook.cpp Contact.cpp PhoneBook_utils.cpp
+SRC = phonebook.cpp Contact.cpp phonebook_utils.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 RM = rm -rf

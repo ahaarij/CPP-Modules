@@ -2,6 +2,9 @@
 
 #include <iostream>
 #include <fstream>
+#include <iomanip>
+#include <cstdlib>
+#include <algorithm>
 #include <sstream>
 #include <map>
 

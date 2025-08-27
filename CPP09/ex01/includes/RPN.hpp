@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <stack>
+#include <cstdlib>
+
 
 class   rpn
 {

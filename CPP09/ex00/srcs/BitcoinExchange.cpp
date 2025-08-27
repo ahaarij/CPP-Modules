@@ -84,7 +84,7 @@ int		BitcoinExchange::Parsing(int month, int day, std::string raate, float rate,
 	{
 		if(raate[0] == '.') //no .5, more like 0.5
 		{
-			std::cerr << "Invalid Rate Format\n";
+			std::cerr << "Invalid Rate Formattt\n";
 			return (-1);
 		}
 		if(raate[j] == '.') // counts how many dec
@@ -119,7 +119,7 @@ void	BitcoinExchange::readInput(std::string file)
 	std::ifstream	input;
 	std::string		line;
 
-	input.open(file);
+	input.open(file.c_str());
 	if(input.fail())
 	{
 		std::cerr << "Error: could not open file\n";
@@ -169,15 +169,16 @@ void	BitcoinExchange::readInput(std::string file)
 		std::stringstream bit;
 		bit << rate;
 		bit >> btc;
+		std::stringstream oss;
 		if (month < 10 && day < 10)
-			date = std::to_string(year * 10) + std::to_string(month * 10) + std::to_string(day);
+			oss << (year * 10) << (month * 10) << day;
 		else if (day < 10)
-			date = std::to_string(year) + std::to_string(month * 10) + std::to_string(day);
+			oss << year << (month * 10) << day;
 		else if (month < 10)
-			date = std::to_string(year * 10) + std::to_string(month) + std::to_string(day);
+			oss << (year * 10) << month << day;
 		else
-			date = std::to_string(year) + std::to_string(month) + std::to_string(day);
-		
+			oss << year << month << day;
+		date = oss.str();
 		if(Parsing(month, day, rate, btc, line) == 0)
 			printOutput(date, btc);
 	}
