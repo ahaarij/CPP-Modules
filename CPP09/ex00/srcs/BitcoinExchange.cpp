@@ -124,7 +124,8 @@ void	BitcoinExchange::readInput(std::string file)
 	{
 		std::cerr << "Error: could not open file\n";
 		input.close();
-		exit(0);
+		throw(std::runtime_error());
+		// exit(0);
 	}
 	while(!input.eof())
 	{
